@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class vehicle{
+public class vehicle {
     private String brand;
     private int speed;
     private String fuelType;
@@ -10,86 +10,106 @@ public class vehicle{
         this.brand = brand;
         this.fuelType = fuelType;
         this.speed = speed;
-    
+
     }
+
     // Getters to access private variables
-    public String getBrand(){
+    public String getBrand() {
         return brand;
     }
-    public String getFuelType(){
+
+    public String getFuelType() {
         return fuelType;
     }
-    public int getSpeed(){
+
+    public int getSpeed() {
         return speed;
     }
-    public void displayInfo(){
+
+    public void displayInfo() {
         System.out.println("Brand: " + brand);
         System.out.println("Fuel Type: " + fuelType);
         System.out.println("Speed: " + speed + " km/h");
     }
-    //Main method 
+
+    // Main method
     public static void main(String[] args) {
-        String vehicleType;
+        int vehicleType;
         boolean choice = true;
 
         Scanner scanner = new Scanner(System.in);
 
-        while(choice){
-            System.out.println("Enter vehicle type (Car/Motorcycle): ");
-            vehicleType = scanner.nextLine();
+        while (choice) {
+            System.out.println("\n" + "----Welcome to Vehicle Information System!---");
+            System.out.println("\n" + "Enter vehicle type: ");
+            System.out.println("\n" + "[1] Car" + "\n" + "[2] Motorcycle" + "\n" + "[3] Exit");
+            vehicleType = scanner.nextInt();
 
-        switch(vehicleType.toLowerCase()){
-            case "car":
-                System.out.println("Enter vehicle brand: ");
-                String brand = scanner.nextLine();
+            switch (vehicleType) {
+                case 1:
+                    scanner.nextLine(); // Consume leftover newline
+                    System.out.println("Enter vehicle brand: ");
+                    String brand = scanner.nextLine();
 
-                System.out.println("Enter fuel type: ");
-                String fuelType = scanner.nextLine();
+                    System.out.println("\nEnter fuel type: ");
+                    String fuelType = scanner.nextLine();
 
-                System.out.println("Enter speed: ");
-                int speed = scanner.nextInt();
-                scanner.nextLine(); // Consume newline
+                    System.out.println("\nEnter speed: ");
+                    int speed = scanner.nextInt();
+                    scanner.nextLine(); // Consume leftover newline
 
-                System.out.println("Enter number of doors: ");
-                int numDoors = scanner.nextInt();
-                scanner.nextLine(); // Consume newline
+                    System.out.println("\nEnter number of doors: ");
+                    int numDoors = scanner.nextInt();
+                    scanner.nextLine(); // Consume leftover newline
 
-                // Create a Car object
-                Car car = new Car(brand, fuelType, speed, 4);
-                System.out.println("Car Details:");
-                System.out.println("Number of Doors: " + numDoors); //Call the unique method in Car class
-                car.displayInfo();
+                    // Create a Car object
+                    Car car = new Car(brand, fuelType, speed, numDoors);
+                    System.out.println("\nCar Details:\n");
+                    car.displayInfo();
 
+                    break;
+
+                case 2:
+                    scanner.nextLine(); // Consume leftover newline
+                    System.out.println("Enter vehicle brand: ");
+                    brand = scanner.nextLine();
+
+                    System.out.println("\nEnter fuel type: ");
+                    fuelType = scanner.nextLine();
+
+                    System.out.println("\nEnter speed: ");
+                    speed = scanner.nextInt();
+                    scanner.nextLine(); // Consume leftover newline
+
+                    System.out.println("\nDo you have a sidecar in your motorcycle? [y/n]");
+                    String hasSidecar = scanner.nextLine();
+
+                    // Create a Motorcycle object
+                    Motorcycle motorcycle = new Motorcycle(brand, fuelType, speed, hasSidecar);
+
+                    System.out.println("\nMotorcycle Details:\n");
+                    motorcycle.displayInfo();
+
+                    break;
+
+                case 3:
+                    scanner.nextLine();
+                    System.out.println("Thank you for using this system! ");
+                    choice = false;
+                    break;
+
+                default:
+                    System.out.println("Invalid vehicle type. Please enter either 1, 2, and 3.");
+                    break;
+            }
+
+            // Condition to stop the loop if the user wants to exit.
+            if (vehicleType == 3) {
+                choice = false;
                 break;
+            }
 
-            case "motorcycle":
-                System.out.println("Enter vehicle brand: ");
-                brand = scanner.nextLine();
-
-                System.out.println("Enter fuel type: ");
-                fuelType = scanner.nextLine();
-
-                System.out.println("Enter speed: ");
-                speed = scanner.nextInt();
-                scanner.nextLine(); // Consume newline
-
-                System.out.println("Has sidecar (true/false): "); //Call the unique method in Motorcycle class
-                boolean hasSidecar = scanner.nextBoolean();
-                scanner.nextLine();
-
-                // Create a Motorcycle object
-                Motorcycle motorcycle = new Motorcycle(brand, fuelType, speed, hasSidecar);
-
-                System.out.println("Motorcycle Details:");
-                motorcycle.displayInfo();
-                
-                break;
-
-            default:
-                System.out.println("Invalid vehicle type. Please enter either 'Car' or 'Motorcycle'.");
-                break;
-        }   
-        System.out.println("Do you want to input another vehicle? (yes/no): ");
+            System.out.println("Do you want to input another vehicle? (yes/no): ");
             String input = scanner.nextLine();
             if (input.equalsIgnoreCase("no")) {
                 choice = false;
@@ -97,12 +117,12 @@ public class vehicle{
             } else if (!input.equalsIgnoreCase("yes")) {
                 System.out.println("Invalid input. Try again.");
             }
-        
-       
+
         }
     }
 }
-class Car extends vehicle{
+
+class Car extends vehicle {
     private int numDoors;
 
     // Constructor to initialize variables in Superclass(vehicle class)
@@ -111,32 +131,33 @@ class Car extends vehicle{
         this.numDoors = numDoors;
     }
 
-    public int getNumDoors(){
+    public int getNumDoors() {
         return numDoors;
     }
 
     // Override the displayInfo function
     @Override
-    public void displayInfo(){
+    public void displayInfo() {
         super.displayInfo();
         System.out.println("Number of Doors: " + numDoors);
     }
 }
-class Motorcycle extends vehicle{
-    private boolean hasSidecar;
+
+class Motorcycle extends vehicle {
+    private String hasSidecar;
 
     // Constructor to initialize variables in Superclass(vehicle class)
-    public Motorcycle(String brand, String fuelType, int speed, boolean hasSidecar) {
+    public Motorcycle(String brand, String fuelType, int speed, String hasSidecar) {
         super(brand, fuelType, speed);
         this.hasSidecar = hasSidecar;
     }
-    
-    public boolean getHasSidecar(){
+
+    public String getHasSidecar() {
         return hasSidecar;
     }
 
     @Override
-    public void displayInfo(){
+    public void displayInfo() {
         super.displayInfo();
         System.out.println("Has Sidecar: " + hasSidecar);
     }
