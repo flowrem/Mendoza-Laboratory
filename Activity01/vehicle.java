@@ -109,13 +109,13 @@ public class vehicle {
                 break;
             }
 
-            System.out.println("Do you want to input another vehicle? (yes/no): ");
+            System.out.println("\n"+ "Do you want to input another vehicle? (yes/no): ");
             String input = scanner.nextLine();
             if (input.equalsIgnoreCase("no")) {
                 choice = false;
-                System.out.println("Exiting the program.");
+                System.out.println("\n"+ "Exiting the program.");
             } else if (!input.equalsIgnoreCase("yes")) {
-                System.out.println("Invalid input. Try again.");
+                System.out.println("\n"+ "Invalid input. Try again.");
             }
 
         }
