@@ -39,8 +39,9 @@ public class vehicle {
 
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println("\n" + "----Welcome to Vehicle Information System!---");
+
         while (choice) {
-            System.out.println("\n" + "----Welcome to Vehicle Information System!---");
             System.out.println("\n" + "Enter vehicle type: ");
             System.out.println("\n" + "[1] Car" + "\n" + "[2] Motorcycle" + "\n" + "[3] Exit");
             vehicleType = scanner.nextInt();
