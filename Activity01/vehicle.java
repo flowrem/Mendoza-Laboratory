@@ -82,7 +82,7 @@ public class vehicle {
                     speed = scanner.nextInt();
                     scanner.nextLine(); // Consume leftover newline
 
-                    System.out.println("\nDo you have a sidecar in your motorcycle? [y/n]");
+                    System.out.println("\nDo you have a sidecar in your motorcycle? [yes/no]");
                     String hasSidecar = scanner.nextLine();
 
                     // Create a Motorcycle object
@@ -95,7 +95,7 @@ public class vehicle {
 
                 case 3:
                     scanner.nextLine();
-                    System.out.println("Thank you for using this system! ");
+                    System.out.println("Exiting the program " + "\nThank you for using this system!");
                     choice = false;
                     break;
 
@@ -114,7 +114,7 @@ public class vehicle {
             String input = scanner.nextLine();
             if (input.equalsIgnoreCase("no")) {
                 choice = false;
-                System.out.println("\n"+ "Exiting the program.");
+                System.out.println("Thank you for using this system! \n"+ "Exiting the program.");
             } else if (!input.equalsIgnoreCase("yes")) {
                 System.out.println("\n"+ "Invalid input. Try again.");
             }
