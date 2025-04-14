@@ -15,22 +15,26 @@ public class TestVehicle {
             System.out.println("\n" + "Enter vehicle type: ");
             System.out.println("\n" + "[1] Car" + "\n" + "[2] Motorcycle" + "\n" + "[3] Exit");
             vehicleType = scanner.nextInt();
+            
+            // Variables to store vehicle details
+            String brand,fuelType,hasSidecar;
+            int speed,numDoors;
 
             switch (vehicleType) {
                 case 1:
                     scanner.nextLine(); // Consume leftover newline
                     System.out.println("Enter vehicle brand: ");
-                    String brand = scanner.nextLine();
+                    brand = scanner.nextLine();
 
                     System.out.println("\nEnter fuel type: ");
-                    String fuelType = scanner.nextLine();
+                    fuelType = scanner.nextLine();
 
                     System.out.println("\nEnter speed: ");
-                    int speed = scanner.nextInt();
+                    speed = scanner.nextInt();
                     scanner.nextLine(); // Consume leftover newline
 
                     System.out.println("\nEnter number of doors: ");
-                    int numDoors = scanner.nextInt();
+                    numDoors = scanner.nextInt();
                     scanner.nextLine(); // Consume leftover newline
 
                     // Create a Car object
@@ -53,7 +57,7 @@ public class TestVehicle {
                     scanner.nextLine(); // Consume leftover newline
 
                     System.out.println("\nDo you have a sidecar in your motorcycle? [yes/no]");
-                    String hasSidecar = scanner.nextLine();
+                    hasSidecar = scanner.nextLine();
 
                     // Create a Motorcycle object
                     Motorcycle motorcycle = new Motorcycle(brand, fuelType, speed, hasSidecar);
