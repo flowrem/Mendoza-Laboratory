@@ -167,5 +167,4 @@ class Motorcycle extends Vehicle {
         super.displayInfo();
         System.out.println("Has Sidecar: " + hasSidecar);
     }
-
 }
