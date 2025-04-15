@@ -15,10 +15,10 @@ public class TestVehicle {
             System.out.println("\n" + "Enter vehicle type: ");
             System.out.println("\n" + "[1] Car" + "\n" + "[2] Motorcycle" + "\n" + "[3] Exit");
             vehicleType = scanner.nextInt();
-            
+
             // Variables to store vehicle details
-            String brand,fuelType,hasSidecar;
-            int speed,numDoors;
+            String brand, fuelType, hasSidecar;
+            int speed, numDoors;
 
             switch (vehicleType) {
                 case 1:
@@ -84,13 +84,13 @@ public class TestVehicle {
                 break;
             }
 
-            System.out.println("\n"+ "Do you want to input another vehicle? (yes/no): ");
+            System.out.println("\n" + "Do you want to input another vehicle? (yes/no): ");
             String input = scanner.nextLine();
             if (input.equalsIgnoreCase("no")) {
                 choice = false;
-                System.out.println("Thank you for using this system! \n"+ "Exiting the program.");
+                System.out.println("Thank you for using this system! \n" + "Exiting the program.");
             } else if (!input.equalsIgnoreCase("yes")) {
-                System.out.println("\n"+ "Invalid input. Try again.");
+                System.out.println("\n" + "Invalid input. Try again.");
             }
 
         }
@@ -121,6 +121,7 @@ class Vehicle {
     public int getSpeed() {
         return speed;
     }
+
     public void displayInfo() {
         System.out.println("Brand: " + brand);
         System.out.println("Fuel Type: " + fuelType);
@@ -128,7 +129,7 @@ class Vehicle {
     }
 }
 
- class Car extends Vehicle {
+class Car extends Vehicle {
     private int numDoors;
 
     // Constructor to initialize variables in Superclass(vehicle class)
