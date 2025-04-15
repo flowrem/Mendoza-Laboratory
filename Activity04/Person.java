@@ -57,7 +57,7 @@ class SchoolTest{
                      System.out.print("Enter teacher ID: ");
                      id = scanner.nextInt();
                      scanner.nextLine(); // Consume newline
-                     System.out.print("Enter subject taught: ");
+                     System.out.print("Enter subject: ");
                      subject = scanner.nextLine();
     
                      Teacher teacher = new Teacher(name, id, subject);
@@ -86,7 +86,7 @@ class SchoolTest{
                 default:
                      System.out.println("Invalid choice. Please try again.");
               }
-              
+
               //Stop the loop if the user wanta to exit the program.
               if(choice == 4){
                  continueInput = false;
