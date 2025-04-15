@@ -7,11 +7,13 @@ public class Teacher extends Person {
         super(name, id);
         this.subject = subject;
     }
+
     public String getSubject() {
         return subject;
     }
+
     @Override
-    public void displayInfo(){
+    public void displayInfo() {
         super.displayInfo();
         System.out.println("Subject: " + subject);
     }
