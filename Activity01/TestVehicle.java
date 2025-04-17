@@ -12,8 +12,8 @@ public class TestVehicle {
         System.out.println("\n" + "----Welcome to Vehicle Information System!----");
 
         while (choice) {
-            System.out.println("\n" + "Enter vehicle type: ");
             System.out.println("\n" + "[1] Car" + "\n" + "[2] Motorcycle" + "\n" + "[3] Exit");
+            System.out.print("\n" + "Enter vehicle type: ");
             vehicleType = scanner.nextInt();
 
             // Variables to store vehicle details
@@ -23,40 +23,40 @@ public class TestVehicle {
             switch (vehicleType) {
                 case 1:
                     scanner.nextLine(); // Consume leftover newline
-                    System.out.println("Enter vehicle brand: ");
+                    System.out.print("Enter vehicle brand: ");
                     brand = scanner.nextLine();
 
-                    System.out.println("\nEnter fuel type: ");
+                    System.out.print("Enter fuel type: ");
                     fuelType = scanner.nextLine();
 
-                    System.out.println("\nEnter speed: ");
+                    System.out.print("Enter speed: ");
                     speed = scanner.nextInt();
                     scanner.nextLine(); // Consume leftover newline
 
-                    System.out.println("\nEnter number of doors: ");
+                    System.out.print("Enter number of doors: ");
                     numDoors = scanner.nextInt();
                     scanner.nextLine(); // Consume leftover newline
 
                     // Create a Car object
                     Car car = new Car(brand, fuelType, speed, numDoors);
-                    System.out.println("\nCar Details:\n");
+                    System.out.print("\nCar Details:\n");
                     car.displayInfo();
 
                     break;
 
                 case 2:
                     scanner.nextLine(); // Consume leftover newline
-                    System.out.println("Enter vehicle brand: ");
+                    System.out.print("Enter vehicle brand: ");
                     brand = scanner.nextLine();
 
-                    System.out.println("\nEnter fuel type: ");
+                    System.out.print("Enter fuel type: ");
                     fuelType = scanner.nextLine();
 
-                    System.out.println("\nEnter speed: ");
+                    System.out.print("Enter speed: ");
                     speed = scanner.nextInt();
                     scanner.nextLine(); // Consume leftover newline
 
-                    System.out.println("\nDo you have a sidecar in your motorcycle? [yes/no]");
+                    System.out.print("Do you have a sidecar in your motorcycle? [yes/no]");
                     hasSidecar = scanner.nextLine();
 
                     // Create a Motorcycle object
@@ -84,7 +84,7 @@ public class TestVehicle {
                 break;
             }
 
-            System.out.println("\n" + "Do you want to input another vehicle? (yes/no): ");
+            System.out.print("\n" + "Do you want to input another vehicle? (yes/no): ");
             String input = scanner.nextLine();
             if (input.equalsIgnoreCase("no")) {
                 choice = false;
